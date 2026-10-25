@@ -1,0 +1,155 @@
+:root {
+  color-scheme: light;
+  --page: #f9f9f7;
+  --surface: #fcfcfb;
+  --surface-raised: #ffffff;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --ink-muted: #6f6d68;
+  --grid: #e1e0d9;
+  --axis: #c3c2b7;
+  --border: rgba(11, 11, 11, 0.1);
+  --accent: #2a78d6;
+  --series-actual: #2a78d6;
+  --series-forecast: #eb6834;
+  --series-adjusted: #1baf7a;
+  --band: rgba(235, 104, 52, 0.16);
+  --bar: #2a78d6;
+  --bar-muted: #b7d3f6;
+  --good: #006300;
+  --warn-ink: #8a5a00;
+  --warn-bg: #fff4dc;
+  --shadow: 0 1px 2px rgba(11, 11, 11, 0.04), 0 4px 16px rgba(11, 11, 11, 0.04);
+  --radius: 14px;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --page: #0d0d0d;
+    --surface: #1a1a19;
+    --surface-raised: #1f1f1e;
+    --ink: #ffffff;
+    --ink-2: #c3c2b7;
+    --ink-muted: #9a988f;
+    --grid: #2c2c2a;
+    --axis: #383835;
+    --border: rgba(255, 255, 255, 0.1);
+    --accent: #3987e5;
+    --series-actual: #3987e5;
+    --series-forecast: #d95926;
+    --series-adjusted: #199e70;
+    --band: rgba(217, 89, 38, 0.22);
+    --bar: #3987e5;
+    --bar-muted: #184f95;
+    --good: #0ca30c;
+    --warn-ink: #fab219;
+    --warn-bg: #2a2310;
+    --shadow: none;
+  }
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --page: #0d0d0d;
+  --surface: #1a1a19;
+  --surface-raised: #1f1f1e;
+  --ink: #ffffff;
+  --ink-2: #c3c2b7;
+  --ink-muted: #9a988f;
+  --grid: #2c2c2a;
+  --axis: #383835;
+  --border: rgba(255, 255, 255, 0.1);
+  --accent: #3987e5;
+  --series-actual: #3987e5;
+  --series-forecast: #d95926;
+  --series-adjusted: #199e70;
+  --band: rgba(217, 89, 38, 0.22);
+  --bar: #3987e5;
+  --bar-muted: #184f95;
+  --good: #0ca30c;
+  --warn-ink: #fab219;
+  --warn-bg: #2a2310;
+  --shadow: none;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink); }
+button, input, select { font: inherit; color: inherit; }
+
+.brand { display: flex; gap: 12px; align-items: center; }
+.brand img { width: 32px; height: 32px; }
+.brand h1 { font-size: 17px; margin: 0; letter-spacing: -0.01em; }
+.brand p { margin: 0; color: var(--ink-2); font-size: 12px; }
+
+/* ---------------------------------------------------------------- controls */
+.btn {
+  height: 36px; padding: 0 10px; border-radius: 8px; cursor: pointer;
+  border: 1px solid var(--border); background: var(--surface-raised);
+}
+.btn:hover { border-color: var(--axis); }
+.btn:disabled { opacity: 0.4; cursor: default; }
+.toggle { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink); height: 36px; cursor: pointer; }
+.toggle input { width: 16px; height: 16px; accent-color: var(--accent); }
+
+/* ---------------------------------------------------------------- grid & cards */
+.grid { display: grid; gap: 16px; }
+.grid-kpi { grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); margin-bottom: 16px; }
+.grid-2 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 520px), 1fr)); }
+
+.card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); box-shadow: var(--shadow); padding: 16px;
+  min-width: 0;
+}
+.card h3 { font-size: 14px; margin: 0; font-weight: 600; }
+.card .sub { margin: 2px 0 12px; color: var(--ink-2); font-size: 13px; }
+.card-head { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; flex-wrap: wrap; }
+
+/* ---------------------------------------------------------------- KPI tiles */
+.kpi .label { font-size: 12px; color: var(--ink-2); display: flex; gap: 4px; align-items: center; }
+.kpi .value { font-size: 26px; font-weight: 600; letter-spacing: -0.02em; margin-top: 4px; }
+.kpi .note { font-size: 12px; color: var(--ink-muted); margin-top: 2px; }
+.kpi .note.good { color: var(--good); }
+.kpi.emphasis { border-color: color-mix(in srgb, var(--accent) 45%, transparent); }
+
+/* ---------------------------------------------------------------- legend */
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 12px; color: var(--ink-2); }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.swatch { width: 14px; height: 3px; border-radius: 2px; display: inline-block; }
+.swatch.dashed { background: repeating-linear-gradient(90deg, currentColor 0 4px, transparent 4px 7px) !important; height: 2px; }
+.swatch.area { height: 10px; border-radius: 3px; }
+
+/* ---------------------------------------------------------------- tooltip */
+.tip {
+  background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px;
+  padding: 8px 10px; font-size: 12px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12); min-width: 180px;
+}
+.tip .tip-title { font-weight: 600; margin-bottom: 4px; }
+.tip .row { display: flex; justify-content: space-between; gap: 16px; color: var(--ink-2); }
+.tip .row b { color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+.tip .muted { color: var(--ink-muted); margin-top: 4px; }
+
+/* ---------------------------------------------------------------- table */
+.table-wrap { overflow-x: auto; max-height: 360px; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; font-variant-numeric: tabular-nums; }
+th, td { text-align: right; padding: 6px 10px; border-bottom: 1px solid var(--grid); white-space: nowrap; }
+th:first-child, td:first-child { text-align: left; }
+th { position: sticky; top: 0; background: var(--surface); color: var(--ink-2); font-weight: 600; }
+
+.callout {
+  display: flex; gap: 10px; padding: 12px 14px; border-radius: 10px;
+  background: var(--warn-bg); color: var(--ink); font-size: 14px; margin-bottom: 16px;
+  border: 1px solid color-mix(in srgb, var(--warn-ink) 30%, transparent);
+}
+.callout strong { color: var(--warn-ink); }
+
+.state { padding: 48px; text-align: center; color: var(--ink-2); }
+.error { color: #d03b3b; }
+.loading { opacity: 0.55; transition: opacity 0.15s; }
+
+.recharts-cartesian-axis-tick-value { fill: var(--ink-muted); font-size: 11px; }
+.recharts-surface:focus { outline: none; }

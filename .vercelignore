@@ -1,0 +1,7 @@
+backend/.venv
+backend/tests
+backend/.pytest_cache
+**/__pycache__
+frontend/node_modules
+frontend/dist
+docs/VIDEO_SCRIPT.md
