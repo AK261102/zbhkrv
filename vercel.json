@@ -11,7 +11,17 @@
     }
   },
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api/index" },
-    { "source": "/((?!api/|assets/|favicon.svg).*)", "destination": "/index.html" }
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/index"
+    },
+    {
+      "source": "/(docs|openapi.json)",
+      "destination": "/api/index"
+    },
+    {
+      "source": "/((?!api/|assets/|favicon.svg|docs|openapi.json).*)",
+      "destination": "/index.html"
+    }
   ]
 }
