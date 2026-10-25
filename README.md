@@ -15,7 +15,8 @@ Scope: GB national **wind** only, from Elexon BMRS:
 and [WINDFOR](https://bmrs.elexon.co.uk/api-documentation/endpoint/datasets/WINDFOR/stream) (forecasts), limited to
 purchase decisions made in **January 2026**.
 
-> **Deployed app:** _not deployed yet (link to be added)_
+> **Live app:** https://zbhkrv.vercel.app
+> **API docs (OpenAPI):** https://zbhkrv.vercel.app/docs
 
 ---
 
