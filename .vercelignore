@@ -5,3 +5,4 @@ backend/.pytest_cache
 frontend/node_modules
 frontend/dist
 docs/VIDEO_SCRIPT.md
+docs/screenshots

@@ -19,6 +19,22 @@ purchase decisions made in **January 2026**.
 >
 > **API docs (OpenAPI):** https://zbhkrv.vercel.app/docs
 
+## Screenshots
+
+**Day-ahead decision:** the forecast available at the D-1 cutoff for a chosen delivery day, a procurement brief
+(forecast, bias-adjusted, firm P90 and actual energy) and the hourly chart with its likely range.
+
+![Day-ahead decision view](docs/screenshots/decision.jpg)
+
+**Forecast accuracy:** month-level error metrics, decision-time forecast vs actual for all of January, daily
+error and the error distribution.
+
+![Forecast accuracy view](docs/screenshots/accuracy.jpg)
+
+**Insights:** how the decision time, forecast lead time and hour of delivery affect the error, with key takeaways.
+
+![Insights view](docs/screenshots/insights.jpg)
+
 ---
 
 ## Key findings (10:00 cutoff, decisions 1–31 Jan 2026)
@@ -117,6 +133,7 @@ Interactive API docs: `http://localhost:8000/docs`.
 │   │   └── layout.css         # app shell, tabs, calendar, procurement brief
 │   ├── vite.config.ts         # dev proxy /api -> :8000
 │   └── package.json
+├── docs/screenshots/          # UI screenshots used in this README
 ├── api/index.py               # Vercel serverless entry point (wraps the FastAPI app)
 ├── vercel.json                # Vercel build, function and routing config
 ├── requirements.txt           # Python deps for the Vercel function
