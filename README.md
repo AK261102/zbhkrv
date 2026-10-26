@@ -18,6 +18,10 @@ purchase decisions made in **January 2026**.
 > **Live app:** https://zbhkrv.vercel.app
 >
 > **API docs (OpenAPI):** https://zbhkrv.vercel.app/docs
+>
+> **Demo video, part 1 (client presentation):** https://drive.google.com/file/d/1b4uaD4bpU9XSZubW7cLRqnHnhZjOpL-T/view?usp=drive_link
+>
+> **Demo video, part 2 (technical walkthrough):** https://drive.google.com/file/d/1lyztLOyxW-98oZBF3b8wocd8kPHhLBw7/view?usp=drive_link
 
 ## Screenshots
 
